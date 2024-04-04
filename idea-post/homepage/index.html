@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideabox Ideas</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-P2SJZuRuVgEw2ZgAsW4F3f6LMnyQEmN2RROZboRtFw6TecYz5tDzgT9RdKqCw8nTSxNt8d1i9F3TB1EaAMV8mw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        
+</head>
+
+<body>
+    <header>
+        <div class="Nav">
+            <h1>IDEA BOX</h1>
+            <a href="../create-idea/create-idea.html"><img class="person" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png"
+                    alt="add--v1"/></a>
+                    <div class="profile">
+                        <a href="#"><img width="64" height="64" src="https://img.icons8.com/pastel-glyph/64/gender-neutral-user.png" alt="gender-neutral-user" /></a>
+                        <p id="userFullName"></p>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="/auth/sign-up/sign-up.html" class="signup-btn">Sign Up</a>
+                        <a href="#" class="login-btn">Log In</a> <!-- Changed href to "#" -->
+                        <a href="#" class="logout-btn" style="display: none;">Log Out</a> <!-- Added logout button -->
+                      </div>
+            </div>
+        </div>
+    </header>
+    <div id="dataContainer"></div>
+    <div class="pagination">
+        <button id="prev-page" disabled>Previous Page</button>
+        <button id="next-page">Next Page</button>
+    </div>
+    <script src="home.js"></script>
+</body>
+
+</html>

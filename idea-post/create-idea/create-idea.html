@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./create-idea.css">
+    <title>IdeaBox share idea page</title>
+</head>
+<body>
+    <div class="idea-container">
+        <h2>Share with IDEABOX</h2>
+        <form id="signupForm">
+            <label for="name">Idea:</label>
+            <textarea type="text" id="name" name="name" required></textarea>
+
+            <label for="tags">Tags:</label>
+            <select id="tags" name="Tags" required>
+                <option value="Education">Education</option>
+                <option value="Technology">Technology</option>
+                <option value="Business">Business</option>
+                <option value="Inventions">Inventions</option>
+                <option value="Artificial_Intelligence">Artificial Intelligence</option>
+            </select>
+
+           
+            <button type="submit">Publish</button>
+        </form>
+        <div id="errorContainer"></div> <!-- New container for displaying errors -->
+       
+    </div>
+    <script src="./create-idea.js"></script>
+</body>
+</html>

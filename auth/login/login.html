@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <title>IdeaBox Login</title>
+    <!-- <a  href="https://icons8.com/icon/0e1tab1ObXlV/view">view</a> icon by <a href="https://icons8.com">Icons8</a> -->
+</head>
+<body>
+    <div class="signup-container">
+        <h2>IDEABOX Login</h2>
+        <form id="signupForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <!-- <img class="show" id="showP" width="24" height="24" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/external-view-content-creator-tanah-basah-basic-outline-tanah-basah.png" alt="external-view-content-creator-tanah-basah-basic-outline-tanah-basah"/> -->
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="errorContainer"></div> <!-- New container for displaying errors -->
+        <p>forgot password? <a href="../reset-password/reset-password.html">Reset</a></p>
+        <p>dont have an account? please <a href="../sign-up/sign-up.html">Sign up</a></p>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
