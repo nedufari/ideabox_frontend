@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert('idea created  successfully!.');
       // Handle successful sign-up, e.g., redirect to the verify email page
-      window.location.href = '../homepage/index.html';
+      window.location.href = '/index.html';
       console.log("Idea created successfully:", data);
       // Optionally, redirect to another page or display a success message
     } catch (error) {
