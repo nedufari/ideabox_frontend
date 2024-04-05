@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.setItem("access_token", data.token);
 
         // Redirect the user to the homepage or any other page
-        window.location.href = "/idea-post/homepage/index.html";
+        window.location.href = "/index.html";
       })
       .catch((error) => {
         // Display error message to the user
