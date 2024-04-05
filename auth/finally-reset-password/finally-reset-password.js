@@ -7,7 +7,7 @@ document.getElementById('resetPasswordForm').addEventListener('submit', async fu
     const confirmPassword = document.getElementById('confirmPassword').value; 
 
     try {
-        const response = await fetch('http://localhost:3000/api/v1/ideabox/user/reset-password', {
+        const response = await fetch('https://ideabox-backend.onrender.com/api/v1/ideabox/user/reset-password', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

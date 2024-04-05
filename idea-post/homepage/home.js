@@ -39,7 +39,7 @@ logoutButton.addEventListener('click', () => {
 function fetchUserInfo() {
   const token = getSessionToken();
   console.log("token", token);
-  fetch("http://localhost:3000/api/v1/ideabox/user/profile", {
+  fetch("https://ideabox-backend.onrender.com/api/v1/ideabox/user/profile", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -91,7 +91,7 @@ function fetchData(page) {
   const token = getSessionToken(); // Retrieve the token
 
   fetch(
-    `http://localhost:3000/api/v1/ideabox/idea/all-ideas?page=${page}&limit=${limit}`,
+    `https://ideabox-backend.onrender.com/api/v1/ideabox/idea/all-ideas?page=${page}&limit=${limit}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -247,7 +247,7 @@ async function deleteIdea(ideaId) {
   const userId = getUserIdFromToken(token);
 
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ideabox/idea/delete-idea/${ideaId}/${userId}`, {
+    const response = await fetch(`https://ideabox-backend.onrender.com/api/v1/ideabox/idea/delete-idea/${ideaId}/${userId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

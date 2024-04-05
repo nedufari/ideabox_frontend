@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Send a POST request to your backend API to authenticate the user
-    fetch("http://localhost:3000/api/v1/ideabox/user/login", {
+    fetch("https://ideabox-backend.onrender.com/api/v1/ideabox/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

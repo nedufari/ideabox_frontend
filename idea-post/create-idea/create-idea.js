@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const userId = getUserIdFromToken(token); // Extract the user ID from the token
       
-      const response = await fetch(`http://localhost:3000/api/v1/ideabox/idea/create-idea/${userId}`, {
+      const response = await fetch(`https://ideabox-backend.onrender.com/api/v1/ideabox/idea/create-idea/${userId}`, {
         method: "POST",
         body: formData,
         headers: {

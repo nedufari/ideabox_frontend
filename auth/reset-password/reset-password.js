@@ -7,7 +7,7 @@ document.getElementById('signupForm').addEventListener('submit', async function 
 
     try {
         // Use Fetch API or any other method to send data to your backend
-        const response = await fetch('http://localhost:3000/api/v1/ideabox/user/send-password-reset-link', {
+        const response = await fetch('https://ideabox-backend.onrender.com/api/v1/ideabox/user/send-password-reset-link', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
