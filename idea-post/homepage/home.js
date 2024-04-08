@@ -2,37 +2,36 @@ let currentPage = 1;
 const limit = 9; // Number of ideas per page
 
 function isUserLoggedIn() {
-  const token = sessionStorage.getItem('access_token');
+  const token = sessionStorage.getItem("access_token");
   return token !== null && token !== undefined; // Check if token exists
 }
 
 // // Fetch user information and update profile name
 fetchUserInfo();
 
-
 // Logic for login and logout buttons
-const loginButton = document.querySelector('.login-btn');
-const logoutButton = document.querySelector('.logout-btn');
+const loginButton = document.querySelector(".login-btn");
+const logoutButton = document.querySelector(".logout-btn");
 
 // Check if user is logged in (you need to implement this logic)
 const isLoggedIn = false; // Example: Change this to true if user is logged in
 
 if (isUserLoggedIn()) {
-    loginButton.style.display = 'none'; // Hide login button
-    logoutButton.style.display = 'inline-block'; // Show logout button
+  loginButton.style.display = "none"; // Hide login button
+  logoutButton.style.display = "inline-block"; // Show logout button
 } else {
-    loginButton.style.display = 'inline-block'; // Show login button
-    logoutButton.style.display = 'none'; // Hide logout button
-    window.location.href = '/auth/login/login.html';
+  loginButton.style.display = "inline-block"; // Show login button
+  logoutButton.style.display = "none"; // Hide logout button
+  window.location.href = "/auth/login/login.html";
 }
 
 // Function to handle logout
-logoutButton.addEventListener('click', () => {
-    // Perform logout logic here (clear session, redirect, etc.)
-    // For example, clear session storage:
-    sessionStorage.clear();
-    // Redirect to login page (change the URL accordingly)
-    window.location.href = '/auth/login/login.html';
+logoutButton.addEventListener("click", () => {
+  // Perform logout logic here (clear session, redirect, etc.)
+  // For example, clear session storage:
+  sessionStorage.clear();
+  // Redirect to login page (change the URL accordingly)
+  window.location.href = "/auth/login/login.html";
 });
 
 // Function to fetch user information and update profile name
@@ -114,7 +113,7 @@ function fetchData(page) {
 
       // Store ideaIds from the response
       ideaIds = formattedData.ideas.map((idea) => idea.id);
-      console.log(ideaIds)
+      console.log(ideaIds);
 
       console.log("Data received:", formattedData);
       if (
@@ -207,9 +206,9 @@ function renderIdeas(ideas) {
       )}`;
       ideaElement.appendChild(createdAtElement);
 
-       // Create delete button and attach idea ID
-       const deleteButton = createDeleteButton(idea.id);
-       ideaElement.appendChild(deleteButton);
+      // Create delete button and attach idea ID
+      const deleteButton = createDeleteButton(idea.id);
+      ideaElement.appendChild(deleteButton);
 
       // Append the idea element to the grid container
       gridContainer.appendChild(ideaElement);
@@ -222,7 +221,6 @@ function renderIdeas(ideas) {
     dataContainer.textContent = "No ideas found.";
   }
 }
-
 function createDeleteButton(ideaId) {
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('delete-button');
@@ -232,8 +230,8 @@ function createDeleteButton(ideaId) {
     const confirmed = confirm('Are you sure you want to delete this idea?');
     if (confirmed){
       const ideaId = deleteButton.dataset.ideaId; // Retrieve the ideaId from the data attribute
-      await deleteIdea(ideaId);
-      deleteButton.parentElement.remove()
+      await deleteIdea(ideaId,deleteButton);
+      
 
     }
    
@@ -242,30 +240,36 @@ function createDeleteButton(ideaId) {
 }
 
 // Function to delete an idea
-async function deleteIdea(ideaId) {
+async function deleteIdea(ideaId,deleteButton) {
   const token = getSessionToken();
   const userId = getUserIdFromToken(token);
 
   try {
-    const response = await fetch(`https://ideabox-backend.onrender.com/api/v1/ideabox/idea/delete-idea/${ideaId}/${userId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-    });
+    const response = await fetch(
+      `https://ideabox-backend.onrender.com/api/v1/ideabox/idea/delete-idea/${ideaId}/${userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (response.ok) {
       // Optionally handle successful deletion
-      console.log('Idea deleted successfully');
+      deleteButton.parentElement.remove()
+      alert('you have successfully deleted this idea')
+      
     } else {
       // Handle error response
       const errorData = await response.json();
-      console.error('Error deleting idea:', errorData.message);
+      console.error("Error deleting idea:", errorData.message);
+      alert(errorData.message)
     }
   } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred while deleting the idea.');
+    console.error("Error:", error);
+    alert("An error occurred while deleting this idea. Please try again");
   }
 }
 // Function to get tag color based on the tag value
